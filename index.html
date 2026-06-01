@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PRIME KITS — Premium Football Jerseys</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="logo">
+        <span class="logo-crown">♛</span>
+        <div class="logo-text">
+          <span class="logo-main">PRIME KITS</span>
+          <span class="logo-sub">PREMIUM</span>
+        </div>
+      </div>
+
+      <nav class="nav-links">
+        <a href="#shop" class="nav-link">Shop</a>
+        <a href="#about" class="nav-link">About</a>
+        <button class="admin-toggle-btn" id="adminToggle">⚙ Admin</button>
+      </nav>
+
+      <div class="header-actions">
+        <div class="search-wrap">
+          <input type="text" id="searchBar" placeholder="Search jerseys…" autocomplete="off" />
+          <span class="search-icon">⌕</span>
+        </div>
+        <button class="cart-btn" id="cartBtn">
+          <span class="cart-icon">🛒</span>
+          <span class="cart-count" id="cartCount">0</span>
+        </button>
+        <button class="hamburger" id="hamburger">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- MOBILE NAV -->
+  <nav class="mobile-nav" id="mobileNav">
+    <a href="#shop" onclick="closeMobileNav()">Shop</a>
+    <a href="#about" onclick="closeMobileNav()">About</a>
+    <button class="admin-toggle-btn" onclick="toggleAdmin(); closeMobileNav()">⚙ Admin Panel</button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg-lines"></div>
+    <div class="hero-content">
+      <p class="hero-eyebrow">EST. 2026 — FOOTBALL CULTURE</p>
+      <h1 class="hero-title">WEAR THE<br /><span class="hero-accent">GAME</span></h1>
+      <p class="hero-desc">Premium football jerseys for champions. Club, national, and retro kits — curated for the real fans.</p>
+      <a href="#shop" class="hero-cta">SHOP NOW →</a>
+    </div>
+    <div class="hero-badge">
+      <div class="badge-ring">
+        <span class="badge-text">PRIME KITS · PREMIUM · EST 2026 ·</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- TICKER -->
+  <div class="ticker-wrap">
+    <div class="ticker-track" id="tickerTrack">
+      <span>FREE DELIVERY ON ORDERS OVER $50</span>
+      <span>★</span>
+      <span>AUTHENTIC QUALITY GUARANTEED</span>
+      <span>★</span>
+      <span>CLUB · NATIONAL · RETRO KITS</span>
+      <span>★</span>
+      <span>NEW ARRIVALS EVERY WEEK</span>
+      <span>★</span>
+      <span>FREE DELIVERY ON ORDERS OVER $50</span>
+      <span>★</span>
+      <span>AUTHENTIC QUALITY GUARANTEED</span>
+      <span>★</span>
+      <span>CLUB · NATIONAL · RETRO KITS</span>
+      <span>★</span>
+      <span>NEW ARRIVALS EVERY WEEK</span>
+      <span>★</span>
+    </div>
+  </div>
+
+  <!-- ADMIN PANEL -->
+  <section class="admin-panel" id="adminPanel">
+    <div class="admin-inner">
+      <div class="admin-header">
+        <h2 class="section-title">⚙ ADMIN PANEL</h2>
+        <button class="close-btn" onclick="toggleAdmin()">✕</button>
+      </div>
+      <form class="admin-form" id="productForm" onsubmit="addProduct(event)">
+        <div class="form-grid">
+          <div class="form-group span-2">
+            <label>Product Name *</label>
+            <input type="text" id="prodName" placeholder="e.g. FC Barcelona Home 2025/26" required />
+          </div>
+          <div class="form-group">
+            <label>Price (USD) *</label>
+            <input type="number" id="prodPrice" placeholder="29.99" step="0.01" min="0" required />
+          </div>
+          <div class="form-group">
+            <label>Category</label>
+            <select id="prodCategory">
+              <option value="club">Club</option>
+              <option value="national">National</option>
+              <option value="retro">Retro</option>
+            </select>
+          </div>
+          <div class="form-group span-2">
+            <label>Description</label>
+            <textarea id="prodDesc" placeholder="Describe the jersey, material, fit, season…" rows="3"></textarea>
+          </div>
+          <div class="form-group span-2">
+            <label>Image URL</label>
+            <input type="url" id="prodImageUrl" placeholder="https://example.com/jersey.jpg" />
+          </div>
+          <div class="form-group span-2">
+            <label>— OR Upload Image File —</label>
+            <input type="file" id="prodImageFile" accept="image/*" />
+          </div>
+        </div>
+        <button type="submit" class="btn-primary">+ ADD PRODUCT</button>
+      </form>
+
+      <!-- ORDER LIST -->
+      <div class="order-list-wrap" id="orderListWrap">
+        <h3 class="sub-title">📋 ORDERS RECEIVED</h3>
+        <div id="orderList" class="order-list">
+          <p class="empty-msg">No orders yet.</p>
+        </div>
+        <button class="btn-secondary" onclick="clearOrders()">Clear All Orders</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SHOP SECTION -->
+  <section class="shop-section" id="shop">
+    <div class="shop-inner">
+      <div class="shop-header">
+        <h2 class="section-title">THE COLLECTION</h2>
+        <div class="filter-tabs" id="filterTabs">
+          <button class="filter-tab active" data-cat="all">ALL</button>
+          <button class="filter-tab" data-cat="club">CLUB</button>
+          <button class="filter-tab" data-cat="national">NATIONAL</button>
+          <button class="filter-tab" data-cat="retro">RETRO</button>
+        </div>
+      </div>
+
+      <div class="product-grid" id="productGrid">
+        <!-- Products rendered by JS -->
+      </div>
+      <p class="empty-shop" id="emptyShop" style="display:none">No jerseys found. Try a different search or add some via Admin.</p>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about-section" id="about">
+    <div class="about-inner">
+      <div class="about-text">
+        <p class="hero-eyebrow">OUR STORY</p>
+        <h2 class="section-title">BUILT FOR<br /><span class="hero-accent">FOOTBALL LOVERS</span></h2>
+        <p>Prime Kits Premium was founded in 2026 with one mission: bring authentic, high-quality football jerseys to fans who live and breathe the game. From iconic club kits to national team classics and rare retro finds — we stock what matters.</p>
+        <p>Every jersey is verified for quality, shipped with care, and priced for real fans.</p>
+      </div>
+      <div class="about-stats">
+        <div class="stat"><span class="stat-num">500+</span><span class="stat-label">Jerseys Sold</span></div>
+        <div class="stat"><span class="stat-num">50+</span><span class="stat-label">Clubs & Nations</span></div>
+        <div class="stat"><span class="stat-num">100%</span><span class="stat-label">Satisfaction</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="logo">
+        <span class="logo-crown">♛</span>
+        <div class="logo-text">
+          <span class="logo-main">PRIME KITS</span>
+          <span class="logo-sub">PREMIUM · EST. 2026</span>
+        </div>
+      </div>
+      <p class="footer-copy">© 2026 Prime Kits Premium. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- PRODUCT DETAIL MODAL -->
+  <div class="modal-overlay" id="productModal" onclick="closeModal(event)">
+    <div class="modal-box" id="modalBox">
+      <button class="modal-close" onclick="closeProductModal()">✕</button>
+      <div class="modal-content" id="modalContent">
+        <!-- filled by JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- ORDER MODAL -->
+  <div class="modal-overlay" id="orderModal" onclick="closeOrderModal(event)">
+    <div class="modal-box order-modal-box" id="orderModalBox">
+      <button class="modal-close" onclick="closeOrderModal()">✕</button>
+      <div id="orderFormContent">
+        <h2 class="modal-title">PLACE YOUR ORDER</h2>
+        <p class="order-product-name" id="orderProductName"></p>
+        <form class="order-form" id="orderForm" onsubmit="submitOrder(event)">
+          <div class="form-group">
+            <label>Full Name *</label>
+            <input type="text" id="orderName" placeholder="Your name" required />
+          </div>
+          <div class="form-group">
+            <label>Phone Number *</label>
+            <input type="tel" id="orderPhone" placeholder="+1 234 567 8900" required />
+          </div>
+          <div class="form-group">
+            <label>Quantity *</label>
+            <input type="number" id="orderQty" value="1" min="1" max="99" required />
+          </div>
+          <div class="form-group">
+            <label>Delivery Location *</label>
+            <textarea id="orderLocation" placeholder="Full delivery address…" rows="2" required></textarea>
+          </div>
+          <div class="order-total-row">
+            <span>Total:</span>
+            <span class="order-total" id="orderTotal">$0.00</span>
+          </div>
+          <button type="submit" class="btn-primary full-width">CONFIRM ORDER →</button>
+        </form>
+      </div>
+      <div class="order-success" id="orderSuccess" style="display:none">
+        <div class="success-icon">✓</div>
+        <h2>ORDER RECEIVED!</h2>
+        <p>Thank you! We'll contact you shortly to confirm delivery details.</p>
+        <button class="btn-primary" onclick="closeOrderModal()">CONTINUE SHOPPING</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- CART DRAWER -->
+  <div class="cart-overlay" id="cartOverlay" onclick="closeCart(event)">
+    <div class="cart-drawer" id="cartDrawer">
+      <div class="cart-header">
+        <h2>YOUR CART</h2>
+        <button onclick="closeCart()" class="modal-close">✕</button>
+      </div>
+      <div class="cart-items" id="cartItems">
+        <p class="empty-msg">Your cart is empty.</p>
+      </div>
+      <div class="cart-footer" id="cartFooter" style="display:none">
+        <div class="cart-total-row">
+          <span>Total</span>
+          <span id="cartTotal">$0.00</span>
+        </div>
+        <button class="btn-primary full-width" onclick="checkoutCart()">CHECKOUT →</button>
+        <button class="btn-secondary full-width" onclick="clearCart()">Clear Cart</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
