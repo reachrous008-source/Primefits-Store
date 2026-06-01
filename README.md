@@ -1,2 +1,2 @@
-# PrimeFits Store
+PrimeFits Store – Premium Jerseys & Streetwear.
 webpagetest
