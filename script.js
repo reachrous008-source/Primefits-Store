@@ -15,54 +15,12 @@ let currentProduct = null; // product open in modal
 // ── SAMPLE PRODUCTS ────────────────────────────────────────
 function getSampleProducts() {
   return [
-    {
-      id: 'p1',
-      name: 'Brazil Home 2026',
-      price: 49.99,
-      description: 'The iconic yellow and green kit of the Seleção. Premium breathable fabric, slim fit, authentic crest embroidery.',
-      category: 'national',
-      image: 'https://images.unsplash.com/photo-1517466787929-bc90951d0974?w=600&q=80',
-    },
-    {
-      id: 'p2',
-      name: 'Manchester United Away',
-      price: 54.99,
-      description: 'Classic red-and-white away strip. Pre-match treatment fabric, moisture-wicking technology, embroidered badge.',
-      category: 'club',
-      image: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80',
-    },
-    {
-      id: 'p3',
-      name: 'France World Cup 1998',
-      price: 39.99,
-      description: 'Retro classic. Celebrate Les Bleus\' first World Cup glory. 100% cotton construction, vintage badge, all-time iconic.',
-      category: 'retro',
-      image: 'https://images.unsplash.com/photo-1508609349937-5ec4ae374ebf?w=600&q=80',
-    },
-    {
-      id: 'p4',
-      name: 'Argentina Home 2025',
-      price: 52.99,
-      description: 'The famous light-blue-and-white stripes of La Albiceleste. Champion edition with three-star embroidery.',
-      category: 'national',
-      image: 'https://images.unsplash.com/photo-1576858574144-9ae1ebcf5ae5?w=600&q=80',
-    },
-    {
-      id: 'p5',
-      name: 'Real Madrid Home',
-      price: 57.99,
-      description: 'Los Blancos\' iconic all-white home strip. Advanced Dri-FIT ADV technology, 15x Champions League edition.',
-      category: 'club',
-      image: 'https://images.unsplash.com/photo-1556906781-9a414e2a7735?w=600&q=80',
-    },
-    {
-      id: 'p6',
-      name: 'AC Milan 1994 Retro',
-      price: 44.99,
-      description: 'Timeless black and red. Relive the Sacchi-era dominance with this premium retro kit. Limited run.',
-      category: 'retro',
-      image: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=600&q=80',
-    },
+    
+    
+    
+   
+    
+   
   ];
 }
 
